@@ -98,7 +98,9 @@ export default function DashboardLayout({
                 <div className="text-xs text-gray-500">{session.user?.email}</div>
               </div>
               <button
-                onClick={() => signOut({ callbackUrl: '/auth/signin' })}
+                onClick={async () => {
+                  await signOut({ callbackUrl: '/auth/signin', redirect: true });
+                }}
                 className="flex items-center w-full px-3 py-2 text-red-600 rounded-lg hover:bg-red-50 transition-colors"
               >
                 <LogOut className="w-5 h-5 mr-3" />
