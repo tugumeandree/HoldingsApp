@@ -1,0 +1,146 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String?
+  email         String    @unique
+  password      String
+  companyName   String
+  role          String    @default("user") // user, admin
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  lands         Land[]
+  labours       Labour[]
+  capitals      Capital[]
+  technologies  Technology[]
+  data          Data[]
+  businesses    Business[]
+}
+
+model Land {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  location      String
+  area          Float     // in square meters or acres
+  areaUnit      String    @default("acres")
+  value         Float
+  acquisitionDate DateTime
+  status        String    @default("active") // active, sold, leased
+  description   String?
+  documents     String?   // JSON string for document URLs
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Labour {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  employeeName  String
+  position      String
+  department    String
+  employeeType  String    @default("full-time") // full-time, part-time, contract
+  salary        Float
+  hireDate      DateTime
+  status        String    @default("active") // active, terminated, on-leave
+  skills        String?   // JSON array of skills
+  contactInfo   String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Capital {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  type          String    // financial, social
+  category      String    // investment, cash, bonds, equity, community, reputation
+  amount        Float
+  currency      String    @default("USD")
+  acquisitionDate DateTime
+  maturityDate  DateTime?
+  status        String    @default("active") // active, liquidated, matured
+  description   String?
+  returns       Float?    // ROI or social impact score
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Technology {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  type          String    // machinery, digital-tool, software, hardware
+  category      String    // production, communication, analytics, automation
+  manufacturer  String?
+  model         String?
+  serialNumber  String?
+  purchaseDate  DateTime
+  purchasePrice Float
+  maintenanceCost Float   @default(0)
+  status        String    @default("operational") // operational, maintenance, retired
+  location      String?
+  specifications String?  // JSON for detailed specs
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Data {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  category      String    // market-research, legal, financial, operational, strategic
+  type          String    // report, document, database, analysis, contract
+  source        String?
+  acquisitionDate DateTime
+  confidentiality String  @default("internal") // public, internal, confidential, secret
+  value         String?   // strategic value assessment
+  fileUrl       String?
+  summary       String?
+  tags          String?   // JSON array of tags
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Business {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  name          String
+  industry      String
+  registrationNumber String?
+  establishedDate DateTime
+  ownershipPercentage Float
+  investmentAmount Float
+  currentValue  Float
+  status        String    @default("active") // active, dormant, closed, acquired
+  location      String?
+  employees     Int       @default(0)
+  annualRevenue Float?
+  description   String?
+  website       String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
