@@ -48,12 +48,12 @@ export async function POST(req: Request) {
     }
 
     const body = await req.json();
-    const data = informationSchema.parse(body);
+    const validatedData = informationSchema.parse(body);
 
     const data = await prisma.data.create({
       data: {
-        ...data,
-        acquisitionDate: new Date(data.acquisitionDate),
+        ...validatedData,
+        acquisitionDate: new Date(validatedData.acquisitionDate),
         userId: session.user.id,
       },
     });
