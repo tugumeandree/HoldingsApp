@@ -51,11 +51,11 @@ export default function DashboardLayout({
     { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
     { name: 'Land', href: '/dashboard/land', icon: Map },
     { name: 'People & Teams', href: '/dashboard/labour', icon: Users },
-    { name: 'Capital & Financial Strategy', href: '/dashboard/capital', icon: DollarSign },
-    { name: 'Technology & Automation', href: '/dashboard/technology', icon: Cpu },
+    { name: 'Capital', href: '/dashboard/capital', icon: DollarSign },
+    { name: 'Technology', href: '/dashboard/technology', icon: Cpu },
     { name: 'Data', href: '/dashboard/information', icon: FileText },
     { name: 'Businesses', href: '/dashboard/businesses', icon: Briefcase },
-    { name: 'Content & Audience', href: '/dashboard/content', icon: FileVideo },
+    { name: 'Content', href: '/dashboard/content', icon: FileVideo },
   ];
 
   return (
@@ -64,11 +64,11 @@ export default function DashboardLayout({
       <aside
         className={`fixed top-0 left-0 z-40 h-screen transition-transform ${
           sidebarOpen ? 'translate-x-0' : '-translate-x-full'
-        } w-64 bg-white shadow-lg`}
+        } lg:translate-x-0 w-64 bg-white shadow-lg`}
       >
-        <div className="h-full px-3 py-4 overflow-y-auto">
-          <div className="flex items-center justify-between mb-6 px-3">
-            <h2 className="text-xl font-bold text-gray-900">Holdings Tracker</h2>
+        <div className="h-full flex flex-col">
+          <div className="flex items-center justify-between px-6 py-5 border-b">
+            <h2 className="text-xl font-bold text-gray-900">Holdings</h2>
             <button
               onClick={() => setSidebarOpen(false)}
               className="lg:hidden text-gray-500 hover:text-gray-900"
@@ -77,50 +77,50 @@ export default function DashboardLayout({
             </button>
           </div>
 
-          <nav className="space-y-2">
-            {navigationItems.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="flex items-center px-3 py-2 text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
-                >
-                  <Icon className="w-5 h-5 mr-3" />
-                  {item.name}
-                </Link>
-              );
-            })}
+          <nav className="flex-1 overflow-y-auto px-3 py-4">
+            <div className="space-y-1">
+              {navigationItems.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    className="flex items-center px-3 py-2.5 text-sm font-medium text-gray-700 rounded-lg hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  >
+                    <Icon className="w-5 h-5 mr-3 flex-shrink-0" />
+                    <span className="truncate">{item.name}</span>
+                  </Link>
+                );
+              })}
+            </div>
           </nav>
 
-          <div className="absolute bottom-4 left-0 right-0 px-3">
-            <div className="border-t pt-4">
-              <div className="px-3 py-2 text-sm text-gray-600 mb-2">
-                <div className="font-medium">{session.user?.name}</div>
-                <div className="text-xs text-gray-500">{session.user?.email}</div>
-              </div>
-              <button
-                onClick={async () => {
-                  await signOut({ callbackUrl: '/auth/signin', redirect: true });
-                }}
-                className="flex items-center w-full px-3 py-2 text-red-600 rounded-lg hover:bg-red-50 transition-colors"
-              >
-                <LogOut className="w-5 h-5 mr-3" />
-                Sign Out
-              </button>
+          <div className="border-t bg-gray-50 px-3 py-4">
+            <div className="px-3 py-2 mb-2">
+              <div className="text-sm font-medium text-gray-900 truncate">{session.user?.name}</div>
+              <div className="text-xs text-gray-500 truncate">{session.user?.email}</div>
             </div>
+            <button
+              onClick={async () => {
+                await signOut({ callbackUrl: '/auth/signin', redirect: true });
+              }}
+              className="flex items-center w-full px-3 py-2 text-sm font-medium text-red-600 rounded-lg hover:bg-red-50 transition-colors"
+            >
+              <LogOut className="w-5 h-5 mr-3 flex-shrink-0" />
+              <span>Sign Out</span>
+            </button>
           </div>
         </div>
       </aside>
 
       {/* Main content */}
-      <div className={`transition-all ${sidebarOpen ? 'lg:ml-64' : ''}`}>
+      <div className="lg:ml-64">
         {/* Top bar */}
-        <header className="bg-white shadow-sm">
-          <div className="flex items-center justify-between px-4 py-4">
+        <header className="bg-white shadow-sm sticky top-0 z-30">
+          <div className="flex items-center justify-between px-6 py-4">
             <button
               onClick={() => setSidebarOpen(!sidebarOpen)}
-              className="text-gray-500 hover:text-gray-900"
+              className="lg:hidden text-gray-500 hover:text-gray-900"
             >
               <Menu className="w-6 h-6" />
             </button>

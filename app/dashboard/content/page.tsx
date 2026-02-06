@@ -170,7 +170,7 @@ export default function ContentPage() {
     <div className="space-y-6">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Content & Audience Reach</h1>
+          <h1 className="text-3xl font-bold text-gray-900">Content & Audience Reach</h1>
           <p className="text-gray-600 mt-2">
             Maximize productivity and scale wealth through repeatable content that reaches massive audiences
           </p>
