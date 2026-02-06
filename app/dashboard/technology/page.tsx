@@ -112,7 +112,7 @@ export default function TechnologyPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -120,7 +120,7 @@ export default function TechnologyPage() {
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="machinery">Machinery</option>
                 <option value="digital-tool">Digital Tool</option>
@@ -136,7 +136,7 @@ export default function TechnologyPage() {
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 required
                 placeholder="e.g., production, communication"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -145,7 +145,7 @@ export default function TechnologyPage() {
                 type="text"
                 value={formData.manufacturer}
                 onChange={(e) => setFormData({ ...formData, manufacturer: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -154,7 +154,7 @@ export default function TechnologyPage() {
                 type="text"
                 value={formData.model}
                 onChange={(e) => setFormData({ ...formData, model: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -164,7 +164,7 @@ export default function TechnologyPage() {
                 value={formData.purchaseDate}
                 onChange={(e) => setFormData({ ...formData, purchaseDate: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -175,7 +175,7 @@ export default function TechnologyPage() {
                 value={formData.purchasePrice}
                 onChange={(e) => setFormData({ ...formData, purchasePrice: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -183,7 +183,7 @@ export default function TechnologyPage() {
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="operational">Operational</option>
                 <option value="maintenance">Maintenance</option>

@@ -101,7 +101,7 @@ export default function InformationPage() {
                 value={formData.title}
                 onChange={(e) => setFormData({ ...formData, title: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -109,7 +109,7 @@ export default function InformationPage() {
               <select
                 value={formData.category}
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="market-research">Market Research</option>
                 <option value="legal">Legal</option>
@@ -123,7 +123,7 @@ export default function InformationPage() {
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="report">Report</option>
                 <option value="document">Document</option>
@@ -138,7 +138,7 @@ export default function InformationPage() {
                 type="text"
                 value={formData.source}
                 onChange={(e) => setFormData({ ...formData, source: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -148,7 +148,7 @@ export default function InformationPage() {
                 value={formData.acquisitionDate}
                 onChange={(e) => setFormData({ ...formData, acquisitionDate: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -156,7 +156,7 @@ export default function InformationPage() {
               <select
                 value={formData.confidentiality}
                 onChange={(e) => setFormData({ ...formData, confidentiality: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="public">Public</option>
                 <option value="internal">Internal</option>
@@ -170,7 +170,7 @@ export default function InformationPage() {
                 value={formData.summary}
                 onChange={(e) => setFormData({ ...formData, summary: e.target.value })}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div className="md:col-span-2 flex gap-2">

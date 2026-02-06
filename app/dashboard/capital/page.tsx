@@ -108,7 +108,7 @@ export default function CapitalPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -116,7 +116,7 @@ export default function CapitalPage() {
               <select
                 value={formData.type}
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="financial">Financial</option>
                 <option value="social">Social</option>
@@ -130,7 +130,7 @@ export default function CapitalPage() {
                 onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 required
                 placeholder="e.g., investment, cash, bonds"
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -141,7 +141,7 @@ export default function CapitalPage() {
                 value={formData.amount}
                 onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -149,7 +149,7 @@ export default function CapitalPage() {
               <select
                 value={formData.currency}
                 onChange={(e) => setFormData({ ...formData, currency: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="USD">USD</option>
                 <option value="EUR">EUR</option>
@@ -164,7 +164,7 @@ export default function CapitalPage() {
                 value={formData.acquisitionDate}
                 onChange={(e) => setFormData({ ...formData, acquisitionDate: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -174,7 +174,7 @@ export default function CapitalPage() {
                 step="0.01"
                 value={formData.returns}
                 onChange={(e) => setFormData({ ...formData, returns: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -182,7 +182,7 @@ export default function CapitalPage() {
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="active">Active</option>
                 <option value="liquidated">Liquidated</option>
@@ -195,7 +195,7 @@ export default function CapitalPage() {
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div className="md:col-span-2 flex gap-2">

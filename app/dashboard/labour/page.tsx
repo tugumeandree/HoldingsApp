@@ -107,7 +107,7 @@ export default function LabourPage() {
                 value={formData.employeeName}
                 onChange={(e) => setFormData({ ...formData, employeeName: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -117,7 +117,7 @@ export default function LabourPage() {
                 value={formData.position}
                 onChange={(e) => setFormData({ ...formData, position: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -127,7 +127,7 @@ export default function LabourPage() {
                 value={formData.department}
                 onChange={(e) => setFormData({ ...formData, department: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -135,7 +135,7 @@ export default function LabourPage() {
               <select
                 value={formData.employeeType}
                 onChange={(e) => setFormData({ ...formData, employeeType: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="full-time">Full-time</option>
                 <option value="part-time">Part-time</option>
@@ -150,7 +150,7 @@ export default function LabourPage() {
                 value={formData.salary}
                 onChange={(e) => setFormData({ ...formData, salary: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -160,7 +160,7 @@ export default function LabourPage() {
                 value={formData.hireDate}
                 onChange={(e) => setFormData({ ...formData, hireDate: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div className="md:col-span-2 flex gap-2">

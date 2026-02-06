@@ -107,7 +107,7 @@ export default function LandPage() {
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -117,7 +117,7 @@ export default function LandPage() {
                 value={formData.location}
                 onChange={(e) => setFormData({ ...formData, location: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -128,7 +128,7 @@ export default function LandPage() {
                 value={formData.area}
                 onChange={(e) => setFormData({ ...formData, area: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -136,7 +136,7 @@ export default function LandPage() {
               <select
                 value={formData.areaUnit}
                 onChange={(e) => setFormData({ ...formData, areaUnit: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="acres">Acres</option>
                 <option value="hectares">Hectares</option>
@@ -152,7 +152,7 @@ export default function LandPage() {
                 value={formData.value}
                 onChange={(e) => setFormData({ ...formData, value: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -162,7 +162,7 @@ export default function LandPage() {
                 value={formData.acquisitionDate}
                 onChange={(e) => setFormData({ ...formData, acquisitionDate: e.target.value })}
                 required
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div>
@@ -170,7 +170,7 @@ export default function LandPage() {
               <select
                 value={formData.status}
                 onChange={(e) => setFormData({ ...formData, status: e.target.value })}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
                 <option value="active">Active</option>
                 <option value="sold">Sold</option>
@@ -183,7 +183,7 @@ export default function LandPage() {
                 value={formData.description}
                 onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                 rows={3}
-                className="w-full px-3 py-2 border border-gray-300 rounded-lg"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
             <div className="md:col-span-2 flex gap-2">
