@@ -26,6 +26,7 @@ model User {
   technologies  Technology[]
   data          Data[]
   businesses    Business[]
+  contents      Content[]
 }
 
 model Land {
@@ -51,12 +52,24 @@ model Labour {
   employeeName  String
   position      String
   department    String
-  employeeType  String    @default("full-time") // full-time, part-time, contract
+  employeeType  String    @default("full-time") // full-time, part-time, contract, collaborator, partner
   salary        Float
   hireDate      DateTime
   status        String    @default("active") // active, terminated, on-leave
   skills        String?   // JSON array of skills
   contactInfo   String?
+  // Collaboration fields for team amplification
+  collaborationType String? // internal, external, outsourced, partnership, network
+  contributionArea String?  // expertise, resources, connections, innovation
+  networkValue  Float?    // quantified value of their network/influence
+  projectsLed   Int?      @default(0) // number of projects led
+  teamImpact    String?   // high, medium, low - impact on team synergy
+  mentorshipRole String?  // mentor, mentee, both, none
+  // Team leadership & collective impact
+  isOutsourced  Boolean?  @default(false) // outsourced service or external
+  teamSize      Int?      @default(1) // size of team they lead/manage
+  impactMultiplier Float? @default(1) // how much more effective as team vs individual
+  collectiveAchievements String? // what the team achieved together
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   
@@ -76,6 +89,21 @@ model Capital {
   status        String    @default("active") // active, liquidated, matured
   description   String?
   returns       Float?    // ROI or social impact score
+  
+  // Strategic Wealth-Building Fields
+  investmentPurpose String  @default("operations") // operations, growth, scaling, research, marketing, hiring
+  fundingSource   String    @default("bootstrapped") // bootstrapped, investors, loans, grants, revenue
+  deploymentStrategy String? // how capital is being strategically used
+  isLeveraged     Boolean   @default(false) // using debt or OPM (Other People's Money)
+  leverageRatio   Float     @default(1.0) // multiplier effect (1.0 = no leverage, 2.0 = 2x leverage)
+  monthlyBurnRate Float     @default(0) // monthly capital consumption
+  runwayMonths    Float     @default(0) // how many months of capital remaining
+  capitalEfficiency Float   @default(0) // revenue generated per dollar invested
+  allocationBreakdown String? // JSON string: {"operations": 40, "marketing": 30, "hiring": 20, "rd": 10}
+  financialLiteracy String   @default("basic") // basic, intermediate, advanced, expert
+  growthVelocity  Float     @default(0) // rate of growth acceleration (% per period)
+  replaceManualEffort Boolean @default(false) // using capital to eliminate manual work
+  
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   
@@ -86,8 +114,8 @@ model Capital {
 model Technology {
   id            String    @id @default(auto()) @map("_id") @db.ObjectId
   name          String
-  type          String    // machinery, digital-tool, software, hardware
-  category      String    // production, communication, analytics, automation
+  type          String    // machinery, software, ai-tool, saas, hardware, automation-system
+  category      String    // production, communication, analytics, automation, productivity
   manufacturer  String?
   model         String?
   serialNumber  String?
@@ -97,6 +125,15 @@ model Technology {
   status        String    @default("operational") // operational, maintenance, retired
   location      String?
   specifications String?  // JSON for detailed specs
+  // Automation & Scale fields
+  automationLevel String? // none, partial, full - level of automation
+  isAIPowered   Boolean?  @default(false) // uses AI/ML capabilities
+  tasksAutomated String? // specific tasks this technology automates
+  productivityGain Float? // % increase in productivity (e.g., 50 = 50%)
+  scalabilityScore Int?   // 1-10 rating of how well it scales
+  integrations  String?   // other systems it integrates with
+  usersSupported Int?     // number of users/team members using it
+  timesSaved    Float?    // hours saved per week/month
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   
@@ -138,6 +175,29 @@ model Business {
   annualRevenue Float?
   description   String?
   website       String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  
+  userId        String    @db.ObjectId
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Content {
+  id            String    @id @default(auto()) @map("_id") @db.ObjectId
+  title         String
+  contentType   String    // video, podcast, article, course, ebook, webinar, social-post, newsletter
+  platform      String    // YouTube, Spotify, Medium, LinkedIn, Instagram, TikTok, Website, etc
+  publicationDate DateTime
+  audienceReach Int       @default(0) // total potential audience size
+  viewCount     Int       @default(0) // actual views/listens/reads
+  engagementRate Float    @default(0) // percentage (likes, comments, shares)
+  isRepeatable  Boolean   @default(true) // evergreen content that continues to generate reach
+  distributionChannels String // comma-separated list of distribution channels
+  productionCost Float    @default(0) // investment in creating content
+  revenueGenerated Float  @default(0) // direct revenue (ads, sponsorships, sales)
+  contentUrl    String?   // link to the content
+  status        String    @default("published") // draft, published, archived
+  description   String?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
   

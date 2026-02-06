@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Plus } from 'lucide-react';
+import { Plus, Pencil, Trash2 } from 'lucide-react';
 
 interface Information {
   id: string;
@@ -17,6 +17,7 @@ export default function InformationPage() {
   const [informations, setInformations] = useState<Information[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     title: '',
     category: 'market-research',
@@ -49,14 +50,18 @@ export default function InformationPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await fetch('/api/information', {
-        method: 'POST',
+      const url = editingId ? `/api/information?id=${editingId}` : '/api/information';
+      const method = editingId ? 'PUT' : 'POST';
+      
+      const response = await fetch(url, {
+        method,
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
         setShowForm(false);
+        setEditingId(null);
         setFormData({
           title: '',
           category: 'market-research',
@@ -70,8 +75,54 @@ export default function InformationPage() {
         fetchInformations();
       }
     } catch (error) {
-      console.error('Failed to create information:', error);
+      console.error('Failed to save information:', error);
     }
+  };
+
+  const handleEdit = (info: Information) => {
+    setFormData({
+      title: info.title,
+      category: info.category,
+      type: info.type,
+      source: info.source || '',
+      acquisitionDate: info.acquisitionDate.split('T')[0],
+      confidentiality: info.confidentiality,
+      value: '',
+      summary: '',
+    });
+    setEditingId(info.id);
+    setShowForm(true);
+  };
+
+  const handleDelete = async (id: string) => {
+    if (!confirm('Are you sure you want to delete this information asset?')) return;
+    
+    try {
+      const response = await fetch(`/api/information?id=${id}`, {
+        method: 'DELETE',
+      });
+
+      if (response.ok) {
+        fetchInformations();
+      }
+    } catch (error) {
+      console.error('Failed to delete information:', error);
+    }
+  };
+
+  const handleCancelEdit = () => {
+    setShowForm(false);
+    setEditingId(null);
+    setFormData({
+      title: '',
+      category: 'market-research',
+      type: 'report',
+      source: '',
+      acquisitionDate: '',
+      confidentiality: 'internal',
+      value: '',
+      summary: '',
+    });
   };
 
   return (
@@ -92,7 +143,7 @@ export default function InformationPage() {
 
       {showForm && (
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
-          <h2 className="text-xl font-bold mb-4">Add New Information Asset</h2>
+          <h2 className="text-xl font-bold mb-4">{editingId ? 'Edit Information Asset' : 'Add New Information Asset'}</h2>
           <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">Title</label>
@@ -178,11 +229,11 @@ export default function InformationPage() {
                 type="submit"
                 className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
               >
-                Save
+                {editingId ? 'Update' : 'Save'}
               </button>
               <button
                 type="button"
-                onClick={() => setShowForm(false)}
+                onClick={handleCancelEdit}
                 className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
               >
                 Cancel
@@ -208,6 +259,7 @@ export default function InformationPage() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Source</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Confidentiality</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
@@ -234,6 +286,24 @@ export default function InformationPage() {
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-gray-600">
                       {new Date(info.acquisitionDate).toLocaleDateString()}
+                    </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <div className="flex gap-2">
+                        <button
+                          onClick={() => handleEdit(info)}
+                          className="p-1 text-blue-600 hover:text-blue-800 hover:bg-blue-50 rounded"
+                          title="Edit"
+                        >
+                          <Pencil className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={() => handleDelete(info.id)}
+                          className="p-1 text-red-600 hover:text-red-800 hover:bg-red-50 rounded"
+                          title="Delete"
+                        >
+                          <Trash2 className="w-4 h-4" />
+                        </button>
+                      </div>
                     </td>
                   </tr>
                 ))}

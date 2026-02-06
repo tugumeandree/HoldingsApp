@@ -11,7 +11,7 @@ export async function GET() {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const [lands, labours, capitals, technologies, data, businesses] =
+    const [lands, labours, capitals, technologies, data, businesses, contents] =
       await Promise.all([
         prisma.land.count({ where: { userId: session.user.id } }),
         prisma.labour.count({ where: { userId: session.user.id } }),
@@ -19,6 +19,7 @@ export async function GET() {
         prisma.technology.count({ where: { userId: session.user.id } }),
         prisma.data.count({ where: { userId: session.user.id } }),
         prisma.business.count({ where: { userId: session.user.id } }),
+        prisma.content.count({ where: { userId: session.user.id } }),
       ]);
 
     return NextResponse.json({
@@ -28,6 +29,7 @@ export async function GET() {
       technologies,
       data,
       businesses,
+      contents,
     });
   } catch (error) {
     console.error('Stats fetch error:', error);

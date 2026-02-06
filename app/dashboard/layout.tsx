@@ -16,6 +16,7 @@ import {
   BarChart3,
   Menu,
   X,
+  FileVideo,
 } from 'lucide-react';
 
 export default function DashboardLayout({
@@ -49,11 +50,12 @@ export default function DashboardLayout({
     { name: 'Dashboard', href: '/dashboard', icon: Building2 },
     { name: 'Analytics', href: '/dashboard/analytics', icon: BarChart3 },
     { name: 'Land', href: '/dashboard/land', icon: Map },
-    { name: 'Labour', href: '/dashboard/labour', icon: Users },
-    { name: 'Capital', href: '/dashboard/capital', icon: DollarSign },
-    { name: 'Technology', href: '/dashboard/technology', icon: Cpu },
+    { name: 'People & Teams', href: '/dashboard/labour', icon: Users },
+    { name: 'Capital & Financial Strategy', href: '/dashboard/capital', icon: DollarSign },
+    { name: 'Technology & Automation', href: '/dashboard/technology', icon: Cpu },
     { name: 'Data', href: '/dashboard/information', icon: FileText },
     { name: 'Businesses', href: '/dashboard/businesses', icon: Briefcase },
+    { name: 'Content & Audience', href: '/dashboard/content', icon: FileVideo },
   ];
 
   return (

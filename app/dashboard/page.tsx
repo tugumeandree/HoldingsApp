@@ -2,7 +2,7 @@
 
 import { useSession } from 'next-auth/react';
 import { useEffect, useState } from 'react';
-import { Building2, Users, DollarSign, Cpu, FileText, Briefcase } from 'lucide-react';
+import { Building2, Users, DollarSign, Cpu, FileText, Briefcase, FileVideo } from 'lucide-react';
 
 interface Stats {
   lands: number;
@@ -11,6 +11,7 @@ interface Stats {
   technologies: number;
   data: number;
   businesses: number;
+  contents: number;
 }
 
 export default function Dashboard() {
@@ -22,6 +23,7 @@ export default function Dashboard() {
     technologies: 0,
     data: 0,
     businesses: 0,
+    contents: 0,
   });
   const [loading, setLoading] = useState(true);
 
@@ -52,21 +54,21 @@ export default function Dashboard() {
       href: '/dashboard/land',
     },
     {
-      title: 'Labour Resources',
+      title: 'People & Teams',
       value: stats.labours,
       icon: Users,
       color: 'bg-blue-500',
       href: '/dashboard/labour',
     },
     {
-      title: 'Capital',
+      title: 'Capital & Financial Strategy',
       value: stats.capitals,
       icon: DollarSign,
       color: 'bg-yellow-500',
       href: '/dashboard/capital',
     },
     {
-      title: 'Technology',
+      title: 'Technology & Automation',
       value: stats.technologies,
       icon: Cpu,
       color: 'bg-purple-500',
@@ -85,6 +87,13 @@ export default function Dashboard() {
       icon: Briefcase,
       color: 'bg-indigo-500',
       href: '/dashboard/businesses',
+    },
+    {
+      title: 'Content & Audience',
+      value: stats.contents,
+      icon: FileVideo,
+      color: 'bg-red-500',
+      href: '/dashboard/content',
     },
   ];
 
@@ -136,22 +145,22 @@ export default function Dashboard() {
             href="/dashboard/labour"
             className="border-2 border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors text-center"
           >
-            <div className="font-semibold text-gray-900 mb-1">Add Employee</div>
-            <div className="text-sm text-gray-600">Register new staff member</div>
+            <div className="font-semibold text-gray-900 mb-1">Add Team Member</div>
+            <div className="text-sm text-gray-600">Build through collaboration</div>
           </a>
           <a
             href="/dashboard/capital"
             className="border-2 border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors text-center"
           >
-            <div className="font-semibold text-gray-900 mb-1">Record Capital</div>
-            <div className="text-sm text-gray-600">Log financial or social capital</div>
+            <div className="font-semibold text-gray-900 mb-1">Deploy Capital</div>
+            <div className="text-sm text-gray-600">Fund growth & scale operations</div>
           </a>
           <a
             href="/dashboard/technology"
             className="border-2 border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors text-center"
           >
             <div className="font-semibold text-gray-900 mb-1">Add Technology</div>
-            <div className="text-sm text-gray-600">Register machinery or tools</div>
+            <div className="text-sm text-gray-600">Scale through automation & AI</div>
           </a>
           <a
             href="/dashboard/information"
@@ -166,6 +175,13 @@ export default function Dashboard() {
           >
             <div className="font-semibold text-gray-900 mb-1">Add Business</div>
             <div className="text-sm text-gray-600">Register business entity</div>
+          </a>
+          <a
+            href="/dashboard/content"
+            className="border-2 border-gray-200 rounded-lg p-4 hover:border-blue-500 transition-colors text-center"
+          >
+            <div className="font-semibold text-gray-900 mb-1">Create Content</div>
+            <div className="text-sm text-gray-600">Scale through audience reach</div>
           </a>
         </div>
       </div>
