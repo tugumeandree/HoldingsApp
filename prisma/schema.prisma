@@ -100,6 +100,8 @@ model Capital {
   runwayMonths    Float     @default(0) // how many months of capital remaining
   capitalEfficiency Float   @default(0) // revenue generated per dollar invested
   allocationBreakdown String? // JSON string: {"operations": 40, "marketing": 30, "hiring": 20, "rd": 10}
+  bankAccounts  String?   // bank accounts details or balances
+  moneyMarketAccounts String? // unit trusts, treasury bills, etc.
   financialLiteracy String   @default("basic") // basic, intermediate, advanced, expert
   growthVelocity  Float     @default(0) // rate of growth acceleration (% per period)
   replaceManualEffort Boolean @default(false) // using capital to eliminate manual work

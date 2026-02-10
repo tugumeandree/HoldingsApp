@@ -26,6 +26,8 @@ const capitalSchema = z.object({
   runwayMonths: z.number().default(0),
   capitalEfficiency: z.number().default(0),
   allocationBreakdown: z.string().optional(),
+  bankAccounts: z.string().optional(),
+  moneyMarketAccounts: z.string().optional(),
   financialLiteracy: z.string().default('basic'),
   growthVelocity: z.number().default(0),
   replaceManualEffort: z.boolean().default(false),

@@ -21,6 +21,8 @@ interface Capital {
   runwayMonths: number;
   capitalEfficiency: number;
   allocationBreakdown?: string;
+  bankAccounts?: string;
+  moneyMarketAccounts?: string;
   financialLiteracy: string;
   growthVelocity: number;
   replaceManualEffort: boolean;
@@ -50,6 +52,8 @@ export default function CapitalPage() {
     runwayMonths: '0',
     capitalEfficiency: '0',
     allocationBreakdown: '',
+    bankAccounts: '',
+    moneyMarketAccounts: '',
     financialLiteracy: 'basic',
     growthVelocity: '0',
     replaceManualEffort: false,
@@ -116,6 +120,8 @@ export default function CapitalPage() {
           runwayMonths: '0',
           capitalEfficiency: '0',
           allocationBreakdown: '',
+          bankAccounts: '',
+          moneyMarketAccounts: '',
           financialLiteracy: 'basic',
           growthVelocity: '0',
           replaceManualEffort: false,
@@ -147,6 +153,8 @@ export default function CapitalPage() {
       runwayMonths: capital.runwayMonths.toString(),
       capitalEfficiency: capital.capitalEfficiency.toString(),
       allocationBreakdown: capital.allocationBreakdown || '',
+      bankAccounts: capital.bankAccounts || '',
+      moneyMarketAccounts: capital.moneyMarketAccounts || '',
       financialLiteracy: capital.financialLiteracy,
       growthVelocity: capital.growthVelocity.toString(),
       replaceManualEffort: capital.replaceManualEffort,
@@ -193,6 +201,8 @@ export default function CapitalPage() {
       runwayMonths: '0',
       capitalEfficiency: '0',
       allocationBreakdown: '',
+      bankAccounts: '',
+      moneyMarketAccounts: '',
       financialLiteracy: 'basic',
       growthVelocity: '0',
       replaceManualEffort: false,
@@ -419,6 +429,27 @@ export default function CapitalPage() {
                 value={formData.allocationBreakdown}
                 onChange={(e) => setFormData({ ...formData, allocationBreakdown: e.target.value })}
                 placeholder="Operations:40, Marketing:30, Hiring:20, R&D:10"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
+              />
+            </div>
+
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Bank Accounts</label>
+              <input
+                type="text"
+                value={formData.bankAccounts}
+                onChange={(e) => setFormData({ ...formData, bankAccounts: e.target.value })}
+                placeholder="e.g., Equity Bank - UGX 25M; Stanbic - USD 5k"
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
+              />
+            </div>
+            <div className="md:col-span-2">
+              <label className="block text-sm font-medium text-gray-700 mb-2">Money Market Accounts (Unit Trusts, Treasury Bills)</label>
+              <input
+                type="text"
+                value={formData.moneyMarketAccounts}
+                onChange={(e) => setFormData({ ...formData, moneyMarketAccounts: e.target.value })}
+                placeholder="e.g., Treasury Bills - 12M; Unit Trust - 8M"
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               />
             </div>
