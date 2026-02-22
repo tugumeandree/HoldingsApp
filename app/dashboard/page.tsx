@@ -61,7 +61,7 @@ export default function Dashboard() {
       href: '/dashboard/labour',
     },
     {
-      title: 'Capital & Financial Strategy',
+      title: 'Capital & Accounts',
       value: stats.capitals,
       icon: DollarSign,
       color: 'bg-yellow-500',
