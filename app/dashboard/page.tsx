@@ -47,6 +47,13 @@ export default function Dashboard() {
 
   const cards = [
     {
+      title: 'Capital & Accounts',
+      value: stats.capitals,
+      icon: DollarSign,
+      color: 'bg-yellow-500',
+      href: '/dashboard/capital',
+    },
+    {
       title: 'Land Assets',
       value: stats.lands,
       icon: Building2,
@@ -59,13 +66,6 @@ export default function Dashboard() {
       icon: Users,
       color: 'bg-blue-500',
       href: '/dashboard/labour',
-    },
-    {
-      title: 'Capital & Accounts',
-      value: stats.capitals,
-      icon: DollarSign,
-      color: 'bg-yellow-500',
-      href: '/dashboard/capital',
     },
     {
       title: 'Technology & Automation',

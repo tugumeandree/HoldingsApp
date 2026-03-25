@@ -18,6 +18,7 @@ import {
   X,
   FileVideo,
 } from 'lucide-react';
+import { Receipt } from 'lucide-react';
 
 export default function DashboardLayout({
   children,
@@ -56,6 +57,7 @@ export default function DashboardLayout({
     { name: 'Data', href: '/dashboard/information', icon: FileText },
     { name: 'Businesses', href: '/dashboard/businesses', icon: Briefcase },
     { name: 'Content', href: '/dashboard/content', icon: FileVideo },
+    { name: 'Taxes', href: '/taxes/dashboard', icon: Receipt },
   ];
 
   return (

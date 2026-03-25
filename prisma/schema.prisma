@@ -27,6 +27,8 @@ model User {
   data          Data[]
   businesses    Business[]
   contents      Content[]
+  taxEvents       TaxEvent[]
+  complianceItems ComplianceItem[]
 }
 
 model Land {
@@ -45,6 +47,52 @@ model Land {
   
   userId        String    @db.ObjectId
   user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+}
+
+model TaxEvent {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId      String   @db.ObjectId
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type        String   // "income" | "expense" | "wht"
+  amount      Float
+  currency    String   @default("UGX")
+  date        DateTime
+  description String
+  category    String
+  source      String?
+  receiptUrl  String?
+  deductible  Boolean  @default(false)
+  whtAmount   Float?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model TaxRule {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  type          String   // "paye" | "wht" | "individual"
+  effectiveDate DateTime
+  rates         String   // JSON string of rate bands
+  thresholds    String   // JSON string of thresholds
+  filingPeriods String   // JSON string of filing periods
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model ComplianceItem {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  userId       String    @db.ObjectId
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type         String    // "return" | "payment"
+  period       String    // "monthly" | "quarterly" | "annual"
+  dueDate      DateTime
+  status       String    @default("pending") // "pending" | "filed" | "paid" | "overdue"
+  taxEventIds  String    @default("[]")
+  description  String?
+  taxAmount    Float?
+  filedDate    DateTime?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }
 
 model Labour {

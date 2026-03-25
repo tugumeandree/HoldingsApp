@@ -35,7 +35,7 @@ export default function CapitalPage() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: '',
-    type: 'financial',
+    type: 'trading-capital',
     category: '',
     amount: '',
     currency: 'USD',
@@ -103,7 +103,7 @@ export default function CapitalPage() {
         setEditingId(null);
         setFormData({
           name: '',
-          type: 'financial',
+          type: 'trading-capital',
           category: '',
           amount: '',
           currency: 'USD',
@@ -184,7 +184,7 @@ export default function CapitalPage() {
     setEditingId(null);
     setFormData({
       name: '',
-      type: 'financial',
+      type: 'trading-capital',
       category: '',
       amount: '',
       currency: 'USD',
@@ -246,8 +246,13 @@ export default function CapitalPage() {
                 onChange={(e) => setFormData({ ...formData, type: e.target.value })}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg text-gray-900"
               >
-                <option value="financial">Financial</option>
-                <option value="social">Social</option>
+                <option value="trading-capital">Trading Capital (For Money and Capital Markets)</option>
+                <option value="working-capital">Working Capital (For Business, Family, and Social Responsibility)</option>
+                <option value="equity-capital">Equity Capital (For Private Shares in Business, Commodities, IP, and REITS)</option>
+                <option value="debt-capital">Debt Capital (For Lending)</option>
+                <option value="fixed-capital">Fixed Capital (For Machinery, Buildings, and Land)</option>
+                <option value="tax-reserve">Tax Reserve</option>
+                <option value="payroll-account">Payroll Account</option>
               </select>
             </div>
             <div>
