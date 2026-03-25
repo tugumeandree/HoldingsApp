@@ -150,12 +150,20 @@ export default function CompliancePage() {
   const generateDeadlines = async () => {
     setGenerating(true);
     const year = new Date().getFullYear();
+    type DeadlineSeed = {
+      type: 'return' | 'payment';
+      period: 'monthly' | 'quarterly' | 'annual';
+      dueDate: string;
+      description: string;
+      taxEventIds: string;
+      status: 'pending' | 'filed' | 'paid' | 'overdue';
+    };
     const months = [
       'January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', 'September', 'October', 'November', 'December',
     ];
 
-    const deadlines = months.map((month, i) => {
+    const deadlines: DeadlineSeed[] = months.map((month, i) => {
       // PAYE due 15th of the FOLLOWING month
       const dueMonth = i + 2; // 1-indexed next month
       const dueYear = dueMonth > 12 ? year + 1 : year;

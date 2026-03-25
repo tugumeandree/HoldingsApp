@@ -31,7 +31,7 @@ const expenseSchema = z.object({
   amount: z.number({ invalid_type_error: 'Enter a valid amount' }).positive('Must be positive'),
   date: z.string().min(1, 'Date is required'),
   category: z.string().min(1, 'Category is required'),
-  deductible: z.boolean().default(false),
+  deductible: z.boolean().optional(),
   receiptUrl: z.string().optional(),
 });
 
