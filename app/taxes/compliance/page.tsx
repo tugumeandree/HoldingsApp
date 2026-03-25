@@ -345,7 +345,7 @@ export default function CompliancePage() {
               <input
                 {...register('description')}
                 placeholder="e.g. PAYE Return – March 2025"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.description && (
                 <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>
@@ -356,7 +356,7 @@ export default function CompliancePage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Type *</label>
               <select
                 {...register('type')}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
                 <option value="return">Tax Return</option>
                 <option value="payment">Tax Payment</option>
@@ -367,7 +367,7 @@ export default function CompliancePage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Period *</label>
               <select
                 {...register('period')}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500 bg-white"
               >
                 <option value="monthly">Monthly</option>
                 <option value="quarterly">Quarterly</option>
@@ -380,7 +380,7 @@ export default function CompliancePage() {
               <input
                 {...register('dueDate')}
                 type="date"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
               {errors.dueDate && (
                 <p className="text-red-500 text-xs mt-1">{errors.dueDate.message}</p>
@@ -396,7 +396,7 @@ export default function CompliancePage() {
                 type="number"
                 min="0"
                 placeholder="0"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 

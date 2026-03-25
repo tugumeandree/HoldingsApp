@@ -262,7 +262,7 @@ export default function ExpensesPage() {
               <input
                 {...register('description')}
                 placeholder="e.g. Fuel for site visit"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
               {errors.description && (
                 <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>
@@ -276,7 +276,7 @@ export default function ExpensesPage() {
                 type="number"
                 min="0"
                 placeholder="0"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
               {errors.amount && (
                 <p className="text-red-500 text-xs mt-1">{errors.amount.message}</p>
@@ -288,7 +288,7 @@ export default function ExpensesPage() {
               <input
                 {...register('date')}
                 type="date"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
               {errors.date && (
                 <p className="text-red-500 text-xs mt-1">{errors.date.message}</p>
@@ -299,7 +299,7 @@ export default function ExpensesPage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Category *</label>
               <select
                 {...register('category')}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 bg-white"
               >
                 <option value="">Select category</option>
                 {EXPENSE_CATEGORIES.map((c) => (
@@ -318,7 +318,7 @@ export default function ExpensesPage() {
               <input
                 {...register('receiptUrl')}
                 placeholder="Receipt number or reference"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-orange-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
               />
             </div>
 

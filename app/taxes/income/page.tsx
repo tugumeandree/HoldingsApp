@@ -228,7 +228,7 @@ export default function IncomePage() {
               <input
                 {...register('description')}
                 placeholder="e.g. Consultancy fee from ABC Ltd"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               {errors.description && (
                 <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>
@@ -242,7 +242,7 @@ export default function IncomePage() {
                 type="number"
                 min="0"
                 placeholder="0"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               {errors.amount && (
                 <p className="text-red-500 text-xs mt-1">{errors.amount.message}</p>
@@ -254,7 +254,7 @@ export default function IncomePage() {
               <input
                 {...register('date')}
                 type="date"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               {errors.date && (
                 <p className="text-red-500 text-xs mt-1">{errors.date.message}</p>
@@ -265,7 +265,7 @@ export default function IncomePage() {
               <label className="block text-sm font-medium text-gray-700 mb-1">Income Source *</label>
               <select
                 {...register('source')}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 focus:outline-none focus:ring-2 focus:ring-emerald-500 bg-white"
               >
                 <option value="">Select source</option>
                 {INCOME_SOURCES.map((s) => (
@@ -282,7 +282,7 @@ export default function IncomePage() {
               <input
                 {...register('category')}
                 placeholder="e.g. Professional Services"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
               />
               {errors.category && (
                 <p className="text-red-500 text-xs mt-1">{errors.category.message}</p>
@@ -307,7 +307,7 @@ export default function IncomePage() {
                     type="number"
                     min="0"
                     placeholder="WHT amount (UGX)"
-                    className="w-full border border-blue-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="w-full border border-blue-300 rounded-lg px-3 py-2 text-sm text-gray-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                   <p className="text-xs text-blue-600 mt-1">
                     Standard rate 6% ={' '}
